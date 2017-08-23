@@ -1,6 +1,6 @@
 {
   "name": "@zaibot/fsa",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "es5",
   "jsnext:main": "dist",
