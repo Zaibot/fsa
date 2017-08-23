@@ -12,7 +12,7 @@
     "clean": "rimraf dist/* es5/*",
     "compile": "npm run compile:ts && npm run compile:es5",
     "compile:ts": "tsc",
-    "compile:es5": "babel -s -d es5 --presets es2015 dist",
+    "compile:es5": "babel -s -d es5 --presets es2015 -D dist",
     "test": "mocha",
     "test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
     "tslint": "tslint --config tslint.json --project tsconfig.json --type-check",
