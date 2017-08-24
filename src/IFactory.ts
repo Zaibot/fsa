@@ -5,5 +5,5 @@ export interface IFactory<TPayload, TMeta> {
     readonly type: Symbol | string;
 
     (payload: TPayload, meta?: TMeta): IAction<TPayload, TMeta>;
-    error(error: Error, meta?: TMeta): IAction<TPayload, TMeta>;
+    error(error: Error, meta?: TMeta): IAction<Error, TMeta>;
 }
