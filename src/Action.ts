@@ -3,7 +3,7 @@ import { IFactory } from './IFactory';
 
 const registered = new Set<symbol | string>();
 
-export function Action<TPayload = {}, TMeta = {}>(type: symbol | string): IFactory<TPayload, TMeta> {
+export function Action<TPayload = {}, TMeta = never>(type: symbol | string): IFactory<TPayload, TMeta> {
     if (registered.has(type)) {
         throw Error(`action ${type} has already been defined`);
     }
