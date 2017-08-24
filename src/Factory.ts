@@ -1,9 +1,7 @@
 import { IAction } from './IAction';
 import { IFactory } from './IFactory';
 
-// tslint:disable:ban-types
-
-export function Factory<TPayload, TMeta>(type: Symbol | string): IFactory<TPayload, TMeta> {
+export function Factory<TPayload, TMeta>(type: symbol | string): IFactory<TPayload, TMeta> {
     const c: any = (payload: TPayload, meta?: TMeta): IAction<TPayload, TMeta> => {
         return meta === undefined ? { type, payload } : { type, payload, meta };
     };
