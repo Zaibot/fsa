@@ -1,7 +1,7 @@
-import { IAction } from './IAction';
-import { IFactory } from './IFactory';
+import { Action } from './Action';
+import { ActionFactory } from './ActionFactory';
 import { isAction } from './isAction';
 
-export function isType<TPayload, TMeta>(action: IAction, factory: IFactory<TPayload, TMeta>): action is IAction<TPayload, TMeta> {
+export function isType<TPayload, TMeta>(action: Action, factory: ActionFactory<TPayload, TMeta>): action is Action<TPayload, TMeta> {
     return isAction(action) ? action.type === factory.type : false;
 }

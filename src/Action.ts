@@ -1,12 +1,6 @@
-import { Factory } from './Factory';
-import { IFactory } from './IFactory';
-
-const registered = new Set<symbol | string>();
-
-export function Action<TPayload = {}, TMeta = never>(type: symbol | string): IFactory<TPayload, TMeta> {
-    if (registered.has(type)) {
-        throw Error(`action ${type} has already been defined`);
-    }
-    registered.add(type);
-    return Factory<TPayload, TMeta>(type);
+export interface Action<TPayload = unknown, TMeta = unknown> {
+    readonly error?: boolean;
+    readonly meta?: Readonly<TMeta>;
+    readonly payload: Readonly<TPayload>;
+    readonly type: symbol | string;
 }

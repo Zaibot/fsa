@@ -1,21 +1,12 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "es6",
-    "moduleResolution": "node",
-    "declaration": true,
-    "noImplicitAny": true,
-    "noImplicitUseStrict": false,
-    "allowSyntheticDefaultImports": true,
-    "outDir": "dist",
-    "strict": true
-  },
-  "filesGlob": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "!node_modules/**"
-  ],
-  "atom": {
-    "rewriteTsconfig": true
-  }
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "es6",
+        "moduleResolution": "node",
+        "declaration": true,
+        "esModuleInterop": true,
+        "outDir": "dist",
+        "strict": true
+    },
+    "include": ["./src"]
 }

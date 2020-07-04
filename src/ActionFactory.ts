@@ -1,14 +1,14 @@
-import { IAction } from './IAction';
+import { Action } from './Action';
 
-export interface IFactory<TPayload = any, TMeta = any> {
+export interface ActionFactory<TPayload = unknown, TMeta = unknown> {
     readonly type: symbol | string;
     /* workaround for getting the payload type, value not defined */
     readonly Payload: TPayload;
     /* workaround for getting the meta type, value not defined */
     readonly Meta: TMeta;
     /* workaround for getting the action type, value not defined */
-    readonly Action: IAction<TPayload, TMeta>;
+    readonly Action: Action<TPayload, TMeta>;
 
-    (payload: TPayload, meta?: TMeta): IAction<TPayload, TMeta>;
-    error(error: Error, meta?: TMeta): IAction<Error, TMeta>;
+    (payload: TPayload, meta?: TMeta): Action<TPayload, TMeta>;
+    error(error: Error, meta?: TMeta): Action<Error, TMeta>;
 }

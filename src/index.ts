@@ -1,8 +1,8 @@
 export { Action } from './Action';
-export { isType } from './isType';
-export { isTypeOneOf } from './isTypeOneOf';
+export { ActionFactory } from './ActionFactory';
+export { createActionFactory } from './createActionFactory';
+export { defineAction } from './defineAction';
 export { isAction } from './isAction';
 export { isError } from './isError';
-export { IFactory } from './IFactory';
-export { IAction } from './IAction';
-export { Factory } from './Factory';
+export { isType } from './isType';
+export { isTypeOneOf } from './isTypeOneOf';
