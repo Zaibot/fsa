@@ -3,25 +3,24 @@
     "version": "0.1.7",
     "description": "Easy type checked Flux Standard Action for TypeScript",
     "main": "es5/index.js",
-    "typings": "es5/index.d.ts",
-    "jsnext:main": "dist/index.js",
-    "typescript:main": "src/index.ts",
+    "module": "dist/index.js",
+    "typings": "dist/index.d.ts",
     "sideEffects": false,
     "scripts": {
-        "prepublish": "npm run build && npm test",
-        "dev": "nodemon -w src -w test -e js,ts -d 1 -x \"npm run compile && npm test\"",
-        "build": "npm run lint && npm run clean && npm run compile",
+        "prepublish": "npm run clean && npm run build && npm test",
         "clean": "rimraf dist/* es5/*",
-        "compile": "npm run compile:ts && npm run compile:es5",
-        "compile:ts": "tsc",
-        "compile:es5": "babel -s -d es5 --presets es2015 -D dist",
-        "test": "mocha",
-        "test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
-        "tslint": "tslint --config tslint.json --project tsconfig.json",
-        "tslint:fix": "tslint --config tslint.json --project tsconfig.json --fix",
-        "lint": "npm run tslint",
-        "lint:fix": "npm run tslint:fix"
+        "build": "npm run build:ts && npm run build:es5",
+        "build:ts": "tsc",
+        "build:es5": "babel -s -d es5 --presets @babel/preset-env -D dist",
+        "test": "jest",
+        "test-travis": "jest --coverage"
     },
+    "files": [
+        "es5",
+        "dist",
+        "src",
+        "test"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Zaibot/fsa.git"
@@ -39,16 +38,13 @@
     },
     "homepage": "https://github.com/Zaibot/fsa#readme",
     "devDependencies": {
+        "@babel/cli": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@types/jest": "^26.0.3",
         "@zaibot/tslint-preset": "github:zaibot/tslint-preset",
-        "babel-cli": "^6.26.0",
-        "babel-preset-es2015": "^6.24.1",
-        "chai": "^4.2.0",
         "coveralls": "^3.1.0",
-        "istanbul": "^0.4.5",
-        "mocha": "^8.0.1",
-        "nodemon": "^2.0.4",
+        "jest": "^26.1.0",
         "rimraf": "^3.0.2",
-        "tslint": "^6.1.2",
         "typescript": "^3.9.6"
     },
     "dependencies": {

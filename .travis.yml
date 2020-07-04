@@ -3,7 +3,7 @@ node_js:
   - "node"
   - "lts/*"
 install:
-  - npm install
+  - NODE_ENV=development npm ci
   - npm run build
 script:
   - "npm run-script test-travis"
